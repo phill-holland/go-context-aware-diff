@@ -5,11 +5,25 @@ import (
 	"io/ioutil"
 )
 
-func load(filename string) int32 {
+func Load(filename string) Instruction {
+	var result Instruction
 	fileContent, err := ioutil.ReadFile(filename)
 	if err == nil {
 		data := string(fileContent)
 		fmt.Println(data)
+		result = Parse(data)
+	} else {
+		fmt.Println("File reading error", err)
 	}
-	return 1
+
+	return result
+}
+
+func Parse(data string) Instruction {
+	var result Instruction
+	var stack []*Instruction
+
+	stack = append(stack, &result)
+
+	return result
 }
