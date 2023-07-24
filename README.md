@@ -1,22 +1,39 @@
-<b>Hello-Go-World</b>
+# Context Aware Code Diff 
 
-This application allows the compilation and execution
-of a simple Go "Hello World" application.
-To run;
+A simple proof-of-concept diff tool implementation rewritten from C++ to Go, explicitly for code files, to help simplify and improve the output from traditional diff algorithms.
 
-<ul>
-<li><b>Ensure project is open within the development container</b></li>
-<li><b>Hit F5</b></li>
-</ul>
+Designed to work on programming languages which using curly brackets to denote code blocks and semi-colons to end statements (for example languages like C++, C#, Java, etc..)
 
-This application demonstrates the following;
+The code is loaded with a parser and into a tree like structure, with spaces and tabs striped.
 
-<ul>
-<li>VS code debugging and breakpoint functionality</li>
-<li>Docker development container configuration</li>
-</ul>
+The original idea was the need for a diff tool for files which may be reorganised but functionally the program would remain the same, but the procedure definition blocks could be implemented in different positions (however this feature still needs to be implemented here, the method however should make this trival).
 
-Requirements;
+Work in progress!
+
+See C++ version here;
+
+https://www.github.com/phill-holland/context-aware-diff
+
+And the rust version;
+
+https://www.github.com/phill-holland/rust-context-aware-diff
+
+# Usage
+
+diff filename1 filename2
+
+# Output
+
+A combined output, using the simple notion of + to highlight when a line is added, or - to highlight when a line is removed.
+
+Note! Current implementation output stripes spaces and tabs from original source files(due to the algorithm implemented to determine the differences)
+
+# Running
+
+- Ensure project is open within the VSCode development container
+- Hit F5
+
+# Requirements
 
 The VSCode development container plugin is installed;
 
