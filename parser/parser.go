@@ -10,7 +10,6 @@ func Load(filename string) Instruction {
 	fileContent, err := ioutil.ReadFile(filename)
 	if err == nil {
 		data := string(fileContent)
-		fmt.Println(data)
 		result = Parse(data)
 	} else {
 		fmt.Println("File reading error", err)

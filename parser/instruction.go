@@ -66,7 +66,7 @@ func (self Instruction) Compare(source Instruction) Instruction {
 				result.children = append(result.children, t)
 			} else {
 				var ttt Instruction
-				ttt.value = temp + string("\n")
+				ttt.value = temp
 				result.children = append(result.children, ttt)
 			}
 
@@ -82,8 +82,12 @@ func (self Instruction) Compare(source Instruction) Instruction {
 		var tt Instruction
 		tt = self.children[num].Prefix(string("- "))
 
-		result.children = append(result.children[:num+1], result.children[num:]...)
-		result.children[num] = tt
+		if len(result.children) == num {
+			result.children = append(result.children, tt)
+		} else {
+			result.children = append(result.children[:num+1], result.children[num:]...)
+			result.children[num] = tt
+		}
 	}
 
 	return result
